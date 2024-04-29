@@ -6,5 +6,8 @@ import (
 )
 
 func RegisterApiRoutes(route *fiber.App) {
-	route.Get("/", controller.GetListUser)
+	route.Get("/", controller.ShowWelcomePageController)
+
+	route.Get("/users", controller.GetListUser)
+	route.Post("/users", controller.CreateUser)
 }
