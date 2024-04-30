@@ -1,14 +1,11 @@
 package main
 
 import (
-	"go_invest/app/middleware"
 	"go_invest/app/route"
 	"go_invest/database"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/log"
-	"github.com/gofiber/fiber/v2/middleware/cors"
-	"github.com/gofiber/fiber/v2/middleware/logger"
 )
 
 func main() {
@@ -19,9 +16,9 @@ func main() {
 		AppName: "Go Invest",
 	}
 	app := fiber.New(config)
-	app.Use(cors.New())
-	app.Use(logger.New())
-	app.Use(middleware.RateLimitMiddleware)
+	// app.Use(cors.New())
+	// app.Use(logger.New())
+	// app.Use(middleware.RateLimitMiddleware)
 
 	route.RegisterApiRoutes(app)
 

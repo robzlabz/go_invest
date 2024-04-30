@@ -5,7 +5,7 @@ import (
 	"golang.org/x/time/rate"
 )
 
-var limiter = rate.NewLimiter(10, 1) // 10 requests per second
+var limiter = rate.NewLimiter(1000, 1) // 10 requests per second
 
 func RateLimitMiddleware(c *fiber.Ctx) error {
 	if !limiter.Allow() {
